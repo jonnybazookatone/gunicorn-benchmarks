@@ -13,7 +13,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
-
+  config.vm.provider "virtualbox" do |v| 
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+  end
   # VM 1
   config.vm.define :api do |api|
     # Define box
